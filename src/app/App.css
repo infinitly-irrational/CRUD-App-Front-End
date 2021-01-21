@@ -1,14 +1,24 @@
-.app {
-  text-align: center;
+.App{
+  text-align:center;
 }
 
-.app-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.nav-bar {
   display: flex;
-  flex-direction: column;
+  justify-content:space-around;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+  min-height:10vh;
+  background: grey;
   color: white;
+}
+
+.nav-links {
+  width:40%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  list-style: none;
+}
+
+a {
+  color:white;
 }
