@@ -14,7 +14,7 @@ const fetchAllPlayers = players => {
 // THUNK CREATORS;
 export const fetchAllPlayersThunk = () => dispatch => {
   return axios
-    .get('/api/players')
+    .get('http://localhost:8080')
     .then(res => res.data)
     .then(players => dispatch(fetchAllPlayers(players)))
     .catch(err => console.log(err))
