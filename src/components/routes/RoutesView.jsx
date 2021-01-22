@@ -1,5 +1,5 @@
 import React from 'react';
-import { Switch, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import { AllPlayersContainer } from '../containers';
 import { AllCampusesContainer } from '../containers';
 import { AllStudentsContainer } from '../containers';

@@ -3,8 +3,8 @@ import AllCampusesView from '../views/AllCampusesView';
 
 function AllCampusesContainer() {
 
-        return(
-            <AllCampusesView />
+        return(<div>
+            <AllCampusesView /> </div>
         )
 }
 
