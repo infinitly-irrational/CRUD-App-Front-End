@@ -36,7 +36,7 @@ export const fetchStudent = () => {
 
 export const fetchCampus = () => dispatch => {
   return axios
-    .get ('http://localhost:8080/')
+    .get ('/api/campus')
     .then(res => res.data)
     .then(campus => dispatch(getCampus(campus)))
     .catch(err => console.log(err))
