@@ -25,7 +25,7 @@ const getCampus = payload => ({
 export const fetchStudent = () => {
     return async (dispatch) => {
         try {
-            const response = await axios.get(`http://localhost:8080/student/1`)
+            const response = await axios.get('/api/student')
             dispatch (getStudent(response.data))
             console.log (response)
         } catch (error) {
