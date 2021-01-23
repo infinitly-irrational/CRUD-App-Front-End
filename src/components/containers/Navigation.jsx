@@ -16,28 +16,31 @@ class Navigation extends Component {
   state = {};
   render() {
     return (
-      <div className="navigation-bar">
-        <button>
-          <Link to="/home">Home</Link>
-        </button>
-        <button>
-          <Link to="/campuses">Campuses</Link>
-        </button>
-        <button>
-          <Link to="/students">Students</Link>
-        </button>
+      <div className="nav">
+        <div className="navigation-bar">
+          <button>
+            <Link to="/home">Home</Link>
+          </button>
+          <button>
+            <Link to="/campuses">Campuses</Link>
+          </button>
+          <button>
+            <Link to="/students">Students</Link>
+          </button>
+        </div>
+        <div>
+          <Switch>
+            <Route path="/students/:studentId" component={Student} />
 
-        <Switch>
-          <Route path="/students/:studentId" component={Student} />
+            <Route path="/campus/:campusName" component={Campus} />
 
-          <Route path="/campus/:campusName" component={Campus} />
+            <Route path="/students/" component={Students} />
 
-          <Route path="/students/" component={Students} />
+            <Route path="/campuses" component={Campuses} />
 
-          <Route path="/campuses" component={Campuses} />
-
-          <Route path="/" component={Home} />
-        </Switch>
+            <Route path="/" component={Home} />
+          </Switch>
+        </div>
       </div>
     );
   }

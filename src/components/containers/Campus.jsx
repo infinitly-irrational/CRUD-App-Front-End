@@ -26,11 +26,11 @@ class Campus extends Component {
           <li>{this.state.address}</li>
           <li>{this.state.description}</li>
         </ul>
-        <ol className="Studens">
+        <ol className="Students">
           {this.state.students.map((student, index) => {
             return (
-              <Link to="/campus/student/:index">
-                <li key="index">{student.name}</li>
+              <Link to="/campus/student/:studentName">
+                <li key={student.name}>{student.name}</li>
               </Link>
             );
           })}

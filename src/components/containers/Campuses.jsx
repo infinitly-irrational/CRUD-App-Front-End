@@ -35,7 +35,7 @@ class Campuses extends Component {
           {this.state.campuses.map((campus, index) => {
             return (
               <Link to="/campus/:index">
-                <li key={index}>{campus.name}</li>;
+                <li key={campus.name}>{campus.name}</li>;
               </Link>
             );
           })}

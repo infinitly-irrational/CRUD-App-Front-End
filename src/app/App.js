@@ -1,13 +1,7 @@
 import React, { Component } from "react";
 import "./App.css";
 import RoutesContainer from "../components/routes/RoutesContainer";
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-  Link,
-  useParams,
-} from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import Students from "../components/containers/Students";
 import Home from "../components/containers/Home";
 import Campus from "../components/containers/Campus";
