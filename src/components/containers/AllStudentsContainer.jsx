@@ -9,10 +9,14 @@ class AllStudentsContainer extends Component {
     async componentDidMount() {
         await this.props.fetchStudent();
       }
-    
 
+
+      handleSubmit = () => {}
+
+    
     render () { return (<div>
-        <AllStudentsView AllStudents = {this.props.getStudents}/> </div>) }
+        <AllStudentsView AllStudents = {this.props.getStudents}/> 
+        </div>) }
 }
 
 const mapState = state => {

@@ -25,7 +25,7 @@ const getCampus = payload => ({
 export const fetchStudent = () => {
     return async (dispatch) => {
         try {
-            const response = await axios.get('/api/student')
+            const response = await axios.get('')
             dispatch (getStudent(response.data))
             console.log (response)
         } catch (error) {
@@ -36,7 +36,7 @@ export const fetchStudent = () => {
 
 export const fetchCampus = () => dispatch => {
   return axios
-    .get ('/api/campus')
+    .get ('')
     .then(res => res.data)
     .then(campus => dispatch(getCampus(campus)))
     .catch(err => console.log(err))
