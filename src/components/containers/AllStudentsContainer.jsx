@@ -10,9 +10,6 @@ class AllStudentsContainer extends Component {
         await this.props.fetchStudent();
       }
 
-
-      handleSubmit = () => {}
-
     
     render () { return (<div>
         <AllStudentsView AllStudents = {this.props.getStudents}/> 
