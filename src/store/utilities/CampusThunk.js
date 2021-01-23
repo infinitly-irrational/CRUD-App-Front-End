@@ -34,30 +34,28 @@ const FetchCampus = (campus) => {
 //Thunk Creators;
 export const fetchAllCampusesThunk = () => (dispatch) => {
 	return axios
-		.get('/api/campuses/')
+		.get('http://localhost:8080/api/campuses/')
 		.then((res) => res.data)
 		.then((campuses) => dispatch(fetchAllCampuses(campuses)))
 		.catch((err) => console.log(err));
 };
 export const fetchCampusThunk = (id) => (dispatch) => {
 	return axios
-		.get(`/api/campuses/${id}`)
+		.get(`http://localhost:8080/api/campuses/${id}`)
 		.then((res) => res.data)
 		.then((campus) => dispatch(FetchCampus(campus)))
 		.catch((err) => console.log(err));
 };
 export const deleteCampusThunk = (id) => (dispatch) => {
 	return axios
-		.delete(`/api/campuses/${id}`)
+		.delete(`http://localhost:8080/api/campuses/${id}`)
 		.then((res) => res.data)
 		.then((campus) => dispatch(DeleteCampus(campus)))
 		.catch((err) => console.log(err));
 };
 export const postCampusThunk = (body) => (dispatch) => {
 	return axios
-		.post('/api/campuses/', {
-			body,
-		})
+		.post('http://localhost:8080/api/campuses/', { body })
 		.then((res) => res.data)
 		.then((campus) => dispatch(PostCampus(campus)))
 		.catch((err) => console.log(err));
