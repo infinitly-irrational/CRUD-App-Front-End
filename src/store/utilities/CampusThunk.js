@@ -64,13 +64,12 @@ export const postCampusThunk = (body) => (dispatch) => {
 const reducer = (state = [], action) => {
 	switch (action.type) {
 		case DELETE_CAMPUS:
-			state.pop(action.payload);
-			return state;
+			return state.filter((element) => element.id !== action.payload.id);
 		case FETCH_ALL_CAMPUSES:
 			return action.payload;
 		case POST_CAMPUS:
-			state.unshift(action.payload);
-			return state;
+			let newState = [action.payload, ...state];
+			return newState;
 		case FETCH_CAMPUS:
 			return action.payload;
 		default:

@@ -17,8 +17,6 @@ class AddCampusForm extends Component {
 
 	handleSubmit = (event) => {
 		event.preventDefault();
-		console.log(event.target.value);
-		console.log(this.state);
 		this.props.postCampus(this.state);
 	};
 

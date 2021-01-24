@@ -8,7 +8,7 @@ const AllCampusesView = (props) => {
 				{props.allCampuses !== undefined ? (
 					props.allCampuses.map((element, index) => {
 						return (
-							<li key={element.name}>
+							<li key={element.name + element.id}>
 								<div className="Campus">
 									<img className="campusImg" src={element.imageUrl} alt="campusPicture" />
 									<button className={element.id} onclick={deleteCampusThunk(element.id)}>
