@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+/* import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { fetchAllPlayersThunk } from '../../thunks';
@@ -7,7 +7,7 @@ import { AllPlayersView } from '../views';
 // Smart container;
 class AllPlayersContainer extends Component {
   componentDidMount() {
-    this.props.fetchAllPlayers();
+    this.props.getStudents();
   }
 
   render() {
@@ -36,4 +36,4 @@ AllPlayersContainer.propTypes = {
 }
 
 // Export our store-connected container by default;
-export default connect(mapState, mapDispatch)(AllPlayersContainer);
+export default connect(mapState, mapDispatch)(AllPlayersContainer); */

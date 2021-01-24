@@ -10,9 +10,11 @@ class AllCampusesContainer extends Component {
 		this.props.fetchAllCampuses();
 	}
 
+
 	render() {
 		return <AllCampusesView allCampuses={this.props.allCampuses} />;
 	}
+
 }
 
 // Map state to props;
