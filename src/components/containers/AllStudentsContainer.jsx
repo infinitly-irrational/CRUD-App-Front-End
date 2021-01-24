@@ -1,39 +1,45 @@
-import AllStudentsView from '../views/AllStudentsView';
 import React, { Component } from 'react';
-// import PropTypes from 'prop-types';
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { fetchStudent } from '../../thunks';
+import { fetchAllStudentsThunk, deleteStudentThunk } from '../../thunks';
+import { AllStudentsView } from '../views';
 
+// Smart container;
 class AllStudentsContainer extends Component {
+	componentDidMount() {
+		this.props.fetchAllStudents();
+	}
 
-    async componentDidMount() {
-        await this.props.fetchStudent();
-      }
-
-    
-    render () { return (<div>
-        <AllStudentsView AllStudents = {this.props.getStudents}/> 
-        </div>) }
+	render() {
+		return <AllStudentsView allStudents={this.props.allStudents} deleteStudent={this.props.deleteStudent} />;
+	}
 }
 
-const mapState = state => {
-    return {
-      getStudents: state.student
-    }
-  }
-  
-  // Map dispatch to props;
-  const mapDispatch = dispatch => {
-    return {
-      fetchStudent: () => dispatch (fetchStudent())
-    }
-  }
-  
-  // Type check props;
-  /* AllStudentsContainer.propTypes = {
-    allPlayers: PropTypes.array.isRequired,
-    fetchStudent: PropTypes.func.isRequired
-  } */
-  
-  // Export our store-connected container by default;
-  export default connect(mapState, mapDispatch)(AllStudentsContainer);
+// Map state to props;
+const mapState = (state) => {
+	return {
+		allStudents: state.allStudents,
+	};
+};
+
+// Map dispatch to props;
+const mapDispatch = (dispatch) => {
+	return {
+		fetchAllStudents: () => dispatch(fetchAllStudentsThunk()),
+		deleteStudent: (id) => dispatch(deleteStudentThunk(id)),
+	};
+};
+
+// Type check props;
+AllStudentsContainer.propTypes = {
+	allStudents: PropTypes.array.isRequired,
+	fetchAllStudents: PropTypes.func.isRequired,
+	deleteStudent: PropTypes.func.isRequired,
+};
+
+// Export our store-connected container by default;
+export default connect(
+	mapState,
+	mapDispatch
+)(AllStudentsContainer);
+
