@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { fetchAllCampusesThunk } from '../../thunks';
-import { AllCampusesView } from '../views';
+import { fetchAllCampusesThunk, postCampusThunk } from '../../thunks';
+import { AllCampusesView, AddCampusForm } from '../views';
 
 // Smart container;
 class AllCampusesContainer extends Component {
@@ -10,11 +10,14 @@ class AllCampusesContainer extends Component {
 		this.props.fetchAllCampuses();
 	}
 
-
 	render() {
-		return <AllCampusesView allCampuses={this.props.allCampuses} />;
+		return (
+			<div>
+				<AddCampusForm postCampus={this.props.postCampus} />
+				<AllCampusesView allCampuses={this.props.allCampuses} />
+			</div>
+		);
 	}
-
 }
 
 // Map state to props;
@@ -26,7 +29,10 @@ const mapState = (state) => {
 
 // Map dispatch to props;
 const mapDispatch = (dispatch) => {
-	return { fetchAllCampuses: () => dispatch(fetchAllCampusesThunk()) };
+	return {
+		fetchAllCampuses: () => dispatch(fetchAllCampusesThunk()),
+		postCampus: (campus) => dispatch(postCampusThunk(campus)),
+	};
 };
 
 // Type check props;

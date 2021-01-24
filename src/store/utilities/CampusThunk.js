@@ -55,7 +55,7 @@ export const deleteCampusThunk = (id) => (dispatch) => {
 };
 export const postCampusThunk = (body) => (dispatch) => {
 	return axios
-		.post('http://localhost:8080/api/campuses/', { body })
+		.post('http://localhost:8080/api/campuses/', body)
 		.then((res) => res.data)
 		.then((campus) => dispatch(PostCampus(campus)))
 		.catch((err) => console.log(err));
