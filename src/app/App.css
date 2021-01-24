@@ -33,8 +33,8 @@ img.campusImg {
 }
 
 img.studentImg {
-  width: 150px;
-  height:150px;
+  width: 175px;
+  height:175px;
 }
 
 li {
@@ -44,8 +44,4 @@ li {
 td {
   border:2px;
   padding:25px;
-}
-
-tr {
-  table-layout: fixed;
 }
