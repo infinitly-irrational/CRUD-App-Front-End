@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 // import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { fetchStudent } from '../../thunks';
+import { postStudentThunk } from '../../thunks'
 import axios from 'axios'
 
 class AddStudentsContainer extends Component {
@@ -24,8 +25,7 @@ class AddStudentsContainer extends Component {
 
       handleSubmit = async (event) => {
           event.preventDefault()
-          const student = await axios.post('/api/student/newStudent',
-          this.state)
+          this.props.postStudentThunk(this.state)
       }
 
       handleChange = (event) => {this.setState({[event.target.name]: event.target.value})}
