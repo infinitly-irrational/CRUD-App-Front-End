@@ -10,7 +10,7 @@ class AllStudentsContainer extends Component {
 		this.props.fetchAllStudents();
 	}
 
-	render() {
+    render() {
 		return <AllStudentsView allStudents={this.props.allStudents} />;
 	}
 }
