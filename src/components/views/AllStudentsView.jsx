@@ -33,27 +33,30 @@ const AllStudentsView = (props) => {
 							</tr>
 						</table>
 
-			{props.allStudents !== undefined ? (
-				props.allStudents.map((element, index) => {
-					return (
-						<table>
-							<tr>
-								<td>
-									<img src={element.imageUrl} alt="student portrait"/> 
-									<button className={element.id} onclick= {deleteStudentThunk(element.id)}>X</button><br/>
-								</td>
-								<td>
-									{element.lastName}, {element.firstName} <br/>
-									Gpa: {element.gpa}
-									<a href={element.email}>{element.email}</a> <br/>
-								</td>
-							</tr>
-						</table>
-					);
-				})
-			) : (
-				<li>No students found!</li>
-			)}
+
+			<table className = "studentTable">
+				<tbody>
+					{props.allStudents !== undefined ? (
+						props.allStudents.map((element, index) => {
+							return (
+									<tr>
+										<td>
+											<img className = "studentImg" src={element.imageUrl} alt="student portrait"/> 
+											<button className={element.id} onclick= {deleteStudentThunk(element.id)}>X</button><br/>
+										</td>
+										<td>
+											{element.lastName}, {element.firstName} <br/>
+											Gpa: {element.gpa}
+											<a href={element.email}>{element.email}</a> <br/>
+										</td>
+									</tr>
+								);
+							})
+					) : (
+						<tr>No Students found</tr>
+					)}
+				</tbody>
+			</table>
 		</div>
 	);
 };
