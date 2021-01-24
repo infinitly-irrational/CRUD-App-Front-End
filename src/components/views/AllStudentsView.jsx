@@ -17,8 +17,12 @@ const AllStudentsView = (props) => {
 									</td>
 									<td>Gpa: {element.gpa}</td>
 									<td>
-										<a href={element.email}>{element.email}</a> <br />
+										<a className="email" href={element.email}>
+											{element.email}
+										</a>{' '}
+										<br />
 									</td>
+									<td>University: {universityName(props.allCampuses, element.campusId)}</td>
 									<td>
 										<button className={element.id} onClick={() => props.deleteStudent(element.id)}>
 											Remove student
@@ -35,5 +39,8 @@ const AllStudentsView = (props) => {
 		</div>
 	);
 };
-
+const universityName = (allCampuses, campusId) => {
+	let foundCampus = allCampuses.find((campus) => campus.id === campusId);
+	return foundCampus !== undefined ? foundCampus.name : 'No campus found';
+};
 export default AllStudentsView;

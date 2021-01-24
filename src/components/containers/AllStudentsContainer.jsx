@@ -15,7 +15,12 @@ class AllStudentsContainer extends Component {
 		return (
 			<div>
 				<AddStudentForm postStudent={this.props.postStudent} avaliableCampuses={this.props.allCampuses} />
-				<AllStudentsView allStudents={this.props.allStudents} deleteStudent={this.props.deleteStudent} />;
+				<AllStudentsView
+					allStudents={this.props.allStudents}
+					deleteStudent={this.props.deleteStudent}
+					allCampuses={this.props.allCampuses}
+				/>
+				;
 			</div>
 		);
 	}
