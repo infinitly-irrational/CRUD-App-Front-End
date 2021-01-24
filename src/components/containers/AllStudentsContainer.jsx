@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { fetchAllStudentsThunk } from '../../thunks';
+import { fetchAllStudentsThunk, deleteStudentThunk } from '../../thunks';
 import { AllStudentsView } from '../views';
 
 // Smart container;
@@ -11,7 +11,7 @@ class AllStudentsContainer extends Component {
 	}
 
 	render() {
-		return <AllStudentsView allStudents={this.props.allStudents} />;
+		return <AllStudentsView allStudents={this.props.allStudents} deleteStudent={this.props.deleteStudent} />;
 	}
 }
 
@@ -24,13 +24,17 @@ const mapState = (state) => {
 
 // Map dispatch to props;
 const mapDispatch = (dispatch) => {
-	return { fetchAllStudents: () => dispatch(fetchAllStudentsThunk()) };
+	return {
+		fetchAllStudents: () => dispatch(fetchAllStudentsThunk()),
+		deleteStudent: (id) => dispatch(deleteStudentThunk(id)),
+	};
 };
 
 // Type check props;
 AllStudentsContainer.propTypes = {
 	allStudents: PropTypes.array.isRequired,
 	fetchAllStudents: PropTypes.func.isRequired,
+	deleteStudent: PropTypes.func.isRequired,
 };
 
 // Export our store-connected container by default;

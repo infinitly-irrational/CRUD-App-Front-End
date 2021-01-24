@@ -64,8 +64,7 @@ export const postStudentThunk = (body) => (dispatch) => {
 const reducer = (state = [], action) => {
 	switch (action.type) {
 		case DELETE_STUDENT:
-			state.pop(action.payload);
-			return state;
+			return state.filter((element) => element.id !== action.payload.id);
 		case FETCH_ALL_STUDENTS:
 			return action.payload;
 		case POST_STUDENT:
