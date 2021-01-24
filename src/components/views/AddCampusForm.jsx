@@ -1,8 +1,4 @@
 import React, { Component } from 'react';
-// import PropTypes from 'prop-types';
-import { connect } from 'react-redux';
-import { postCampusThunk } from '../../thunks';
-import axios from 'axios';
 
 class AddCampusForm extends Component {
 	constructor(props) {
@@ -30,15 +26,15 @@ class AddCampusForm extends Component {
 				<form onSubmit={this.handleSubmit}>
 					<label>
 						Campus Name:
-						<input type="text" name="name" onChange={this.handleChange} value={this.state.firstname} />
+						<input type="text" name="name" onChange={this.handleChange} value={this.state.name} />
 					</label>
 					<label>
 						Image:
-						<input type="text" name="imageUrl" onChange={this.handleChange} value={this.state.lastname} />
+						<input type="text" name="imageUrl" onChange={this.handleChange} value={this.state.imageUrl} />
 					</label>
 					<label>
 						Address:
-						<input type="text" name="address" onChange={this.handleChange} value={this.state.email} />
+						<input type="text" name="address" onChange={this.handleChange} value={this.state.address} />
 					</label>
 					<label>
 						Description
@@ -55,11 +51,4 @@ class AddCampusForm extends Component {
 		);
 	}
 }
-// Type check props;
-/* AllStudentsContainer.propTypes = {
-    allPlayers: PropTypes.array.isRequired,
-    fetchStudent: PropTypes.func.isRequired
-  } */
-
-// Export our store-connected container by default;
 export default AddCampusForm;

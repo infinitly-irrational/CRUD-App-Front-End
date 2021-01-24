@@ -55,8 +55,8 @@ export const deleteStudentThunk = (id) => (dispatch) => {
 };
 export const postStudentThunk = (body) => (dispatch) => {
 	return axios
-		.post('http://localhost:8080/api/students/', { body })
-		.then((res) => res.data)
+		.post('http://localhost:8080/api/students/', body)
+		.then((res) => res.data.student)
 		.then((student) => dispatch(PostStudent(student)))
 		.catch((err) => console.log(err));
 };
@@ -68,8 +68,8 @@ const reducer = (state = [], action) => {
 		case FETCH_ALL_STUDENTS:
 			return action.payload;
 		case POST_STUDENT:
-			state.unshift(action.payload);
-			return state;
+			let newState = [action.payload, ...state];
+			return newState;
 		case FETCH_STUDENT:
 			return action.payload;
 		default:

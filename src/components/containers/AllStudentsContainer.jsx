@@ -1,17 +1,23 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { fetchAllStudentsThunk, deleteStudentThunk } from '../../thunks';
-import { AllStudentsView } from '../views';
+import { fetchAllStudentsThunk, deleteStudentThunk, postStudentThunk, fetchAllCampusesThunk } from '../../thunks';
+import { AddStudentForm, AllStudentsView } from '../views';
 
 // Smart container;
 class AllStudentsContainer extends Component {
 	componentDidMount() {
 		this.props.fetchAllStudents();
+		this.props.fetchAllCampuses();
 	}
 
 	render() {
-		return <AllStudentsView allStudents={this.props.allStudents} deleteStudent={this.props.deleteStudent} />;
+		return (
+			<div>
+				<AddStudentForm postStudent={this.props.postStudent} avaliableCampuses={this.props.allCampuses} />
+				<AllStudentsView allStudents={this.props.allStudents} deleteStudent={this.props.deleteStudent} />;
+			</div>
+		);
 	}
 }
 
@@ -19,6 +25,7 @@ class AllStudentsContainer extends Component {
 const mapState = (state) => {
 	return {
 		allStudents: state.allStudents,
+		allCampuses: state.allCampuses,
 	};
 };
 
@@ -27,6 +34,8 @@ const mapDispatch = (dispatch) => {
 	return {
 		fetchAllStudents: () => dispatch(fetchAllStudentsThunk()),
 		deleteStudent: (id) => dispatch(deleteStudentThunk(id)),
+		postStudent: (student) => dispatch(postStudentThunk(student)),
+		fetchAllCampuses: () => dispatch(fetchAllCampusesThunk()),
 	};
 };
 
@@ -42,4 +51,3 @@ export default connect(
 	mapState,
 	mapDispatch
 )(AllStudentsContainer);
-
