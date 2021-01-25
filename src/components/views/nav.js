@@ -20,10 +20,6 @@ function Nav() {
                     <li>Campuses</li>
                 </Link>
 
-                <Link to="/addStudents">
-                    <li>Add Students</li>
-                </Link>
-
             </ul>
         </div>
     )

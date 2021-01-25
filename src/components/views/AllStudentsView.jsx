@@ -1,4 +1,6 @@
 import React from 'react';
+import {Link} from 'react-router-dom';
+import {SingleStudent} from './SingleStudentView'
 
 const AllStudentsView = (props) => {
 	return (
@@ -13,7 +15,9 @@ const AllStudentsView = (props) => {
 										<img className="studentImg" src={element.imageUrl} alt="student portrait" />
 									</td>
 									<td>
-										{element.lastName}, {element.firstName}
+										<Link to= "api/student/id" component = {SingleStudent (props.allStudents, index)}>
+											{element.lastName}, {element.firstName}
+										</Link>
 									</td>
 									<td>Gpa: {element.gpa}</td>
 									<td>
@@ -39,7 +43,7 @@ const AllStudentsView = (props) => {
 		</div>
 	);
 };
-const universityName = (allCampuses, campusId) => {
+export const universityName = (allCampuses, campusId) => {
 	let foundCampus = allCampuses.find((campus) => campus.id === campusId);
 	return foundCampus !== undefined ? foundCampus.name : 'No campus found';
 };
